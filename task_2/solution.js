@@ -16,7 +16,7 @@ function calcShipping(sum, min, shipping) {
     // если productsSum больше 0 и меньше freeShippingMinSum,
     // то shippingSum присвоить значение shippingPrice
 let shippingSum
-    if (productSum=0) {
+    if (productSum==0) {                
     shippingSum=0
 }
     else if (productSum>=freeShippingMinSum) {
@@ -42,13 +42,13 @@ function calcDiscount(sum, min, discount) {
     // если productsSum больше или равно discountMinSum,
     // то присвойте discountPrice значение discountPart процентов от productsSum,
     // иначе присвойте discountPrice значения 0
-let duscountPrice
+let discountPrice
     if (productsSum>=discountMinSum) {
-        discoontPrice=(discountPart/productSum)
-    }else {discoontPrice=0}
+        discountPrice=(productsSum / 100 * discountPart)
+    }else {discountPrice=0}
     // Конец решения задания №2.2.
 
-    return discountSum;
+    return discountPrice;
 }
 
 function calcInvoice({sum, discountMinSum, discountPart, shippingFreeMinSum, shippingPrice}) {
@@ -58,8 +58,8 @@ function calcInvoice({sum, discountMinSum, discountPart, shippingFreeMinSum, shi
     // Задача №2.3. Рассчитать скидки и доставку в корзине
 
     // создайте переменную totalSum
-let totalSum=productSum
-totalSum=(totalSum-discoontPrice)
+let totalSum=sum
+totalSum=(totalSum-discountPrice)
     // присвойте totalSum значение productsSum
     // уменьшите totalSum на discountSum
 
@@ -69,9 +69,9 @@ totalSum=(totalSum+shippingSum)    // прибавьте к totalSum значе�
 
 let freeShipping    // создайте переменную freeShipping
     // запишите без использования if или любых других условий:
-freeShipping=0 ==freeShipping=true    // если shippingSum равно нулю, то freeShipping должна быть равна true, иначе freeShipping должна быть равна false
-
+    // если shippingSum равно нулю, то freeShipping должна быть равна true, иначе freeShipping должна быть равна false
+freeShipping=(shippingSum==0)
     // Конец решения задачи №2.3.
 
-    return {discount: discountSum, freeShipping, shipping: shippingSum, total: totalSum};
+    return {discount: discountPrice, freeShipping, shipping: shippingSum, total: totalSum};
 }
