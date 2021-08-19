@@ -67,7 +67,7 @@ totalSum=(totalSum+shippingSum)    // прибавьте к totalSum значе�
 let freeShipping    // создайте переменную freeShipping
     // запишите без использования if или любых других условий:
     // если shippingSum равно нулю, то freeShipping должна быть равна true, иначе freeShipping должна быть равна false
-freeShipping=(shippingSum==0)
+freeShipping = !Boolean(shippingSum)
     // Конец решения задачи №2.3.
 
     return {discount: discountPrice, freeShipping, shipping: shippingSum, total: totalSum};
