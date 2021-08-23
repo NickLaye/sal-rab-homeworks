@@ -32,6 +32,14 @@
 //      ]
 //    }
 // }
+let name = "Иван"
+let phone = 89176667788
+let address = {street: "ул. Ленина", house: "дом 2", entrance: "4 подъезд", floor: "5 этаж", flat: "кв 53"}
+let goods = "Пицца"
+let count = 2
+let discount = 10
+let price = 500
+let sum = (price * count - (price * discount / 100))
 
 function sendRequest(name, phone, address, goods, sum) {
     let data = {goods: [], order: {}};
@@ -47,7 +55,7 @@ function sendRequest(name, phone, address, goods, sum) {
 
     data.client = 'Иван';
 
-    let jsonData = JSON.stringify(data);
+    let jsonData = JSON.stringify({data});
 
     return jsonData;
 }
